@@ -66,6 +66,5 @@ EcoTrack allows users to:
 ## 🚀 Deployment
 
 EcoTrack is deployed using GitHub Pages. You can access the live version here:
-
-[https://gsrcode01.github.io/EcoTrack-AI-Powered-Carbon-Footprint-Tracker/](https://gsrcode01.github.io/EcoTrack-AI-Powered-Carbon-Footprint-Tracker/)
+[https://gsrcode01.github.io/EcoTrack-AI-Powered-Carbon-Footprint-Tracker/]
 
