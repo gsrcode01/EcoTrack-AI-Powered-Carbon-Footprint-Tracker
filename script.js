@@ -1,15 +1,3 @@
-/**
- * ========================================
- * EcoTrack - JavaScript Application
- * Modern ES6+ Carbon Footprint Tracker
- * Version: 15 Compatible
- * ========================================
- */
-
-// ============================
-// APPLICATION CONFIGURATION
-// ============================
-
 const APP_CONFIG = {
     version: '1.0.0',
     apiEndpoint: '/api/v1',
