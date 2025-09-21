@@ -1,0 +1,589 @@
+/* ===================================
+   EcoTrack - Carbon Footprint Tracker
+   Modern CSS Stylesheet with Animations
+   =================================== */
+
+/* CSS Custom Properties (Variables) */
+:root {
+    --primary: #00d4aa;
+    --secondary: #1a2332;
+    --accent: #ff6b6b;
+    --dark: #0f1419;
+    --light: #f8fafc;
+    --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    --green-gradient: linear-gradient(135deg, #00d4aa 0%, #00b894 100%);
+}
+
+/* Global Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Body and HTML Setup */
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--secondary);
+    overflow-x: hidden;
+    perspective: 1000px;
+}
+
+/* ===================================
+   HEADER NAVIGATION STYLES
+   =================================== */
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    animation: headerFloat 6s ease-in-out infinite;
+}
+
+/* Header scroll state */
+.header.scrolled {
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 1000px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.9));
+    border-radius: 25px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 0 5px 15px rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(30px);
+}
+
+@keyframes headerFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-3px); }
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    background: linear-gradient(135deg, var(--primary), #00b894);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 0 2px 4px rgba(0, 212, 170, 0.3);
+    z-index: 10;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    z-index: 10;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 212, 170, 0.2);
+}
+
+.header.scrolled .nav-links a {
+    color: var(--secondary);
+}
+
+.header.scrolled .nav-links a:hover {
+    color: var(--primary);
+    background: rgba(0, 212, 170, 0.1);
+}
+
+/* CTA Button Styles */
+.cta-btn {
+    background: linear-gradient(135deg, var(--primary), #00b894, var(--primary));
+    background-size: 200% 200%;
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 25px rgba(0, 212, 170, 0.3);
+    animation: gradientShift 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+    z-index: 10;
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+.cta-btn:hover::before {
+    left: 100%;
+}
+
+.cta-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 212, 170, 0.4);
+}
+
+@keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+/* ===================================
+   HERO SECTION STYLES
+   =================================== */
+
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(-45deg, #667eea, #764ba2, #6a82fb, #fc5c7d);
+    background-size: 400% 400%;
+    animation: gradientWave 8s ease-in-out infinite;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+@keyframes gradientWave {
+    0%, 100% { background-position: 0% 50%; }
+    25% { background-position: 100% 50%; }
+    50% { background-position: 100% 100%; }
+    75% { background-position: 0% 100%; }
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+    animation: gridMove 20s linear infinite;
+}
+
+@keyframes gridMove {
+    0% { transform: translate(0, 0); }
+    100% { transform: translate(10px, 10px); }
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    color: white;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    animation: slideInLeft 1s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    animation: slideInLeft 1s ease-out 0.2s both;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    animation: slideInLeft 1s ease-out 0.4s both;
+}
+
+/* ===================================
+   TYPING ANIMATION STYLES
+   =================================== */
+
+#typing-animation {
+    position: relative;
+    min-height: 4.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.typing-text {
+    display: inline-block;
+}
+
+.typing-cursor {
+    display: inline-block;
+    margin-left: 3px;
+    color: var(--primary);
+    animation: blink 1s infinite;
+    font-weight: normal;
+    width: 3px;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
+/* ===================================
+   BUTTON STYLES
+   =================================== */
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary), #00b894, var(--primary));
+    background-size: 200% 200%;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+    animation: buttonGlow 3s ease-in-out infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+@keyframes buttonGlow {
+    0%, 100% { 
+        background-position: 0% 50%; 
+        box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+    }
+    50% { 
+        background-position: 100% 50%; 
+        box-shadow: 0 15px 40px rgba(0, 212, 170, 0.5);
+    }
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 1rem 2rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 25px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.6s;
+}
+
+.btn-secondary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover, .btn-secondary:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* ===================================
+   DASHBOARD PREVIEW STYLES
+   =================================== */
+
+.dashboard-preview {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2rem;
+    animation: slideInRight 1s ease-out 0.6s both;
+    position: relative;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1), 
+                0 10px 20px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    transform-style: preserve-3d;
+}
+
+.dashboard-preview:hover {
+    transform: rotateX(5deg) rotateY(-5deg);
+}
+
+.dashboard-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 
+                0 5px 15px rgba(0, 0, 0, 0.05),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-style: preserve-3d;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px) translateZ(20px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15), 
+                0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.metric-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.metric-value {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+.metric-label {
+    color: var(--secondary);
+    font-size: 0.9rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 1rem 0;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--primary);
+    border-radius: 4px;
+    transition: width 1s ease-in-out;
+}
+
+/* ===================================
+   SECTION STYLES
+   =================================== */
+
+.features {
+    padding: 5rem 0;
+    background: var(--light);
+}
+
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    color: var(--secondary);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08), 
+                0 5px 15px rgba(0, 0, 0, 0.03),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    transform-style: preserve-3d;
+}
+
+.feature-card:hover {
+    transform: translateY(-12px) translateZ(30px);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12), 
+                0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--green-gradient);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: white;
+}
+
+.feature-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--secondary);
+}
+
+/* ===================================
+   DEMO SECTION STYLES
+   =================================== */
+
+.demo-section {
+    padding: 5rem 0;
+    background: var(--secondary);
+    color: white;
+}
+
+.demo-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    text-align: center;
+}
+
+.activity-logger {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-top: 3rem;
+}
+
+.activity-form {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.form-group select, .form-group input {
+    width: 100%;
+    padding: 1rem;
+    border: none;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+}
+
+.carbon-display {
+    background: var(--primary);
+    color: white;
+    padding: 2rem;
+    border-radius: 15px;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.carbon-value {
+    font-size: 3rem;
+    font-weight: bold;
+    display: block;
+}
+
+/* ===================================
+   PRICING SECTION STYLES
+   =================================== */
+
+.pricing {
+    padding: 5rem 0;
+    background: var(--light);
+}
+
+.pricing-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.pricing-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 
+                0 8px 16px rgba(0, 0, 0, 0.04),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.pricing-card.feature
