@@ -63,3 +63,9 @@ EcoTrack allows users to:
 3. Explore the frontend interface and interact with the components.
 
 ---
+## 🚀 Deployment
+
+EcoTrack is deployed using GitHub Pages. You can access the live version here:
+
+[https://gsrcode01.github.io/EcoTrack-AI-Powered-Carbon-Footprint-Tracker/](https://gsrcode01.github.io/EcoTrack-AI-Powered-Carbon-Footprint-Tracker/)
+
