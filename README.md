@@ -63,6 +63,7 @@ EcoTrack allows users to:
 3. Explore the frontend interface and interact with the components.
 
 ---
+
 ## 🚀 Deployment
 
 EcoTrack is deployed using GitHub Pages. You can access the live version here:
