@@ -1,8 +1,3 @@
-/* ===================================
-   EcoTrack - Carbon Footprint Tracker
-   Modern CSS Stylesheet with Animations
-   =================================== */
-
 /* CSS Custom Properties (Variables) */
 :root {
     --primary: #00d4aa;
@@ -35,11 +30,6 @@ body {
     overflow-x: hidden;
     perspective: 1000px;
 }
-
-/* ===================================
-   HEADER NAVIGATION STYLES
-   =================================== */
-
 .header {
     position: fixed;
     top: 0;
